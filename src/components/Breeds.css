@@ -10,3 +10,7 @@
   margin: 1em;
   text-align: center;
 }
+
+.filterList li {
+  font-size: 22px;
+}
