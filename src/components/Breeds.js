@@ -15,46 +15,34 @@ export const Breeds = (props) => {
       newList = props.breeds.filter((breed) =>
         breed.name.includes(searchWord.toLowerCase()),
       );
-      console.log(newList);
       setFiltered(newList);
     }
   }, [props.breeds, searchWord]);
 
-  const handleChange = (e) => {
-    setSearchWord(e);
-  };
+  function renderBreeds(data) {
+    return data.map((breed, i) => (
+      <ul className="filterList" key={i}>
+        <img
+          src={breed.image}
+          style={{ background: 'red' }}
+          width="50"
+          height="50"
+          alt={breed.name}
+        />
+        <li>{breed.name}</li>
+      </ul>
+    ));
+  }
 
   return (
     <div className="breedFlex">
       <Filter
         value={searchWord}
-        handleChange={(e) => handleChange(e.target.value)}
+        handleChange={(e) => setSearchWord(e.target.value)}
       />
       {searchWord.length < 1
-        ? props.breeds.map((breed, i) => (
-            <ul className="filterList" key={i}>
-              <img
-                src={breed.image}
-                style={{ background: 'red' }}
-                width="50"
-                height="50"
-                alt={breed.name}
-              />
-              <li>{breed.name}</li>
-            </ul>
-          ))
-        : showFiltered.map((breed, i) => (
-            <ul className="filterList" key={i}>
-              <img
-                src={breed.image}
-                style={{ background: 'red' }}
-                width="50"
-                height="50"
-                alt={breed.name}
-              />
-              <li>{breed.name}</li>
-            </ul>
-          ))}
+        ? renderBreeds(props.breeds)
+        : renderBreeds(showFiltered)}
     </div>
   );
 };
