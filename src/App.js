@@ -4,13 +4,18 @@ import zip from 'lodash.zip';
 
 import axios from 'axios';
 
+import loadingPuppy from './loadingPuppy.gif';
+
 import './App.css';
 
 function App() {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
+      setIsLoading(true);
+
       const response = await axios(
         'https://dog.ceo/api/breeds/list/all',
       );
@@ -32,6 +37,7 @@ function App() {
         image: a[1],
       }));
       setData(breedWithImage);
+      setIsLoading(false);
     }
     fetchData();
   }, []);
@@ -39,7 +45,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">Dog Breed Directory</header>
-      <Breeds breeds={data} />
+      {isLoading ? (
+        <img src={loadingPuppy} alt="loading puppy" />
+      ) : (
+        <Breeds breeds={data} />
+      )}
     </div>
   );
 }
