@@ -37,7 +37,7 @@ export const Breeds = (props) => {
     <div className="breedFlex">
       <Filter
         value={searchWord}
-        handleChange={(e) => setSearchWord(e.target.value)}
+        handleChange={({ target: { value } }) => setSearchWord(value)}
       />
       {searchWord.length < 1
         ? renderBreeds(props.breeds)
