@@ -10,12 +10,11 @@ export const Breeds = (props) => {
 
   useEffect(() => {
     if (searchWord !== '') {
-      let newList = [];
-
-      newList = props.breeds.filter((breed) =>
-        breed.name.includes(searchWord.toLowerCase()),
+      setFiltered(
+        props.breeds.filter((breed) =>
+          breed.name.includes(searchWord.toLowerCase()),
+        ),
       );
-      setFiltered(newList);
     }
   }, [props.breeds, searchWord]);
 
