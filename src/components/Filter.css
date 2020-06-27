@@ -1,0 +1,16 @@
+.filter {
+  width: 100%;
+  margin: 1em auto;
+}
+
+.input {
+  min-width: 200px;
+  height: auto;
+  background: white;
+  border-radius: 1em;
+  padding: 1em 2em;
+  max-width: 400px;
+  color: gray;
+  outline: none;
+  font-size: 1rem;
+}

@@ -1,0 +1,8 @@
+.breedFlex {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.filterList {
+  list-style-type: none;
+}
