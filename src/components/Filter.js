@@ -9,6 +9,7 @@ export const Filter = ({ value, handleChange }) => {
         className="input"
         value={value}
         onChange={handleChange}
+        placeholder="Type a name"
       />
     </div>
   );
