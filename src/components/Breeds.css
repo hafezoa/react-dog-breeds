@@ -1,8 +1,12 @@
 .breedFlex {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 .filterList {
   list-style-type: none;
+  min-width: 100px;
+  margin: 1em;
+  text-align: center;
 }

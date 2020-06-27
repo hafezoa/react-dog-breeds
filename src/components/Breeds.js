@@ -24,8 +24,7 @@ export const Breeds = (props) => {
         <img
           src={breed.image}
           style={{ background: 'red' }}
-          width="50"
-          height="50"
+          width="150"
           alt={breed.name}
         />
         <li>{breed.name}</li>
