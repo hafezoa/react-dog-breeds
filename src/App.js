@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">Dog Breed Directory</header>
+      <header className="App-header">React Dog Breeds</header>
       {isLoading ? (
         <img src={loadingPuppy} alt="loading puppy" />
       ) : (
