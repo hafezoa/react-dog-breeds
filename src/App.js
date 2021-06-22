@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Breeds } from './components/Breeds';
-import zip from 'lodash.zip';
 
 import axios from 'axios';
 
@@ -29,13 +28,8 @@ function App() {
         ),
       );
 
-      const breedWithImage = zip(
-        Object.keys(response.data.message),
-        dogImageData.map((dog) => dog.data.message),
-      ).flatMap((a, b) => ({
-        name: a[0],
-        image: a[1],
-      }));
+      const breedWithImage = Object.keys(response.data.message).map((name, idx) => ({ name, image: dogImageData[idx].data.message }))
+
       setData(breedWithImage);
       setIsLoading(false);
     }
